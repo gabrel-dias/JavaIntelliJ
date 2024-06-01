@@ -4,15 +4,14 @@ public class MediaScanner {
     public static void main(String[] args) {
         Scanner entradaNota = new Scanner(System.in);
         double nota1, nota2, nota3, nota4, media;
-        // TODO for (int notas = 0; notas < 4; notas++)
-        System.out.println("Digite a 1 nota");
-        //nota1 = Double.parseDouble(System.console().readLine());
+
+        System.out.println("Digite a 1ª nota");
         nota1 = entradaNota.nextInt();
-        System.out.println("Digite a 2 nota");
+        System.out.println("Digite a 2ª nota");
         nota2 = entradaNota.nextInt();
-        System.out.println("Digite a 3 nota");
+        System.out.println("Digite a 3ª nota");
         nota3 = entradaNota.nextInt();
-        System.out.println("Digite a 4 nota");
+        System.out.println("Digite a 4ª nota");
         nota4 = entradaNota.nextInt();
         media = (nota1 + nota2 + nota3 + nota4) / 4;
 
@@ -20,10 +19,3 @@ public class MediaScanner {
     }
 }
 
-//class MediaConsole{
-//    public static void main(String[] args) {
-//        double n1,n2,n3,n4,media;
-//        n1 = Double.parseDouble(System.console().readLine());
-//        System.out.println(n1);
-//    }
-//}
