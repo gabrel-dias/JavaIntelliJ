@@ -5,7 +5,7 @@ public class MediaScanner {
         Scanner entradaNota = new Scanner(System.in);
         double nota1, nota2, nota3, nota4, media;
 
-        System.out.println("Digite a 1ª nota");
+        //TODO System.out.println("Digite a " + cont + "ª nota");
         nota1 = entradaNota.nextInt();
         System.out.println("Digite a 2ª nota");
         nota2 = entradaNota.nextInt();
@@ -18,4 +18,3 @@ public class MediaScanner {
         System.out.println("A sua média final é: " + media);
     }
 }
-

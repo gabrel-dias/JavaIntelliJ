@@ -6,11 +6,11 @@ public class Jovem {
         System.out.println("Digite a sua idade");
         int idade = entrada.nextInt();
 
-        if (idade >=25){
+        if (idade >= 25) {
             System.out.println("Você é velho!");
         } else if (idade == 24) {
             System.out.println("Você é gay!kkk");
-        } else{
+        } else {
             System.out.println("Você é jovem!");
         }
 
