@@ -1,3 +1,5 @@
+package problemas;
+
 import java.util.Scanner;
 
 public class MediaScanner {
