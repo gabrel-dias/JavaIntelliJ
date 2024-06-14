@@ -2,7 +2,6 @@ package stream_API;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * Representa uma função que aceita um argumento do tipo T e retorna um valor boolean.
@@ -13,8 +12,8 @@ public class PredicateTeste {
         List<String> palavras = Arrays.asList("java", "python", "c++", "c#", "javascript");
 
         // não é preciso especificar a saída do Predicate pois ela sempre será um boolean
-        Predicate<String> maisDeCinco = palavra -> palavra.length() > 5;
+//        Predicate<String> maisDeCinco = palavra -> palavra.length() > 5;
 
-        palavras.stream().filter(maisDeCinco).forEach(System.out::println);
+        palavras.stream().filter(s -> s.length() < 5).forEach(System.out::println);
     }
 }
