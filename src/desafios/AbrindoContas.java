@@ -13,13 +13,14 @@ public class AbrindoContas {
         String nomeTitular = scanner.nextLine();
         double saldo = scanner.nextDouble();
 
-        //TODO: Criar uma instância de "ContaBancaria" com os valores de Entrada.
+        // Cria uma instância de "ContaBancaria" com os valores de Entrada.
         ContaBancaria conta = new ContaBancaria(numeroConta, nomeTitular, saldo);
 
 
-        System.out.println("Informacoes:");
-        //TODO: Imprimir as informações da conta usando o objeto criado no TODO acima.
-        System.out.println(conta);
+        System.out.println("Informações:");
+        // Imprime as informações da conta usando o objeto criado acima.
+        System.out.println(conta); // depois eu descobri que é só implementar os getters dos atributos da conta
+        // e chamá-los na saída do terminal
     }
 }
 
