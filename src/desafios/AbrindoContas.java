@@ -31,13 +31,10 @@ class ContaBancaria {
     //Método construtor pro retorno não ser o endereço na memória
     @Override
     public String toString() {
-        return "ContaBancaria{" +
-                "numero=" + numero +
-                ", titular='" + titular + '\'' +
-                ", saldo=" + saldo +
-                '}';
+        return "Conta: " + numero + "\nTitular: " + titular + "\nSaldo: R$ " + saldo;
     }
-//Construtor da classe
+
+    //Construtor da classe
     public ContaBancaria(int numero, String titular, double saldo) {
         this.numero = numero;
         this.titular = titular;
