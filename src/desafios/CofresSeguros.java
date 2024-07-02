@@ -1,6 +1,8 @@
+// TODO revisar toda a lógica desse código
 package desafios;
 
 import java.util.Scanner;
+
 
 abstract class Cofre {
     protected String tipo;
@@ -41,15 +43,26 @@ class CofreFisico extends Cofre {
 
 public class CofresSeguros {
     public static void main(String[] args) {
-        // Lê o tipo de cofre (primeira linha da entrada)
+
         Scanner scanner = new Scanner(System.in);
         String tipoCofre = scanner.nextLine();
-        CofreFisico fisico = new CofreFisico();
-        // TODO: Implemente a condição necessário para a verificação dos cofres seguros:
+
 
         if (tipoCofre.equalsIgnoreCase("digital")) {
+            int senha1 = scanner.nextInt();
+            int senha2 = scanner.nextInt();
+            CofreDigital cofreDigital = new CofreDigital(senha1);
+            cofreDigital.imprimirInformacoes();
+            if (cofreDigital.validarSenha(senha2) == true) {
+                System.out.println("Cofre aberto!");
+            } else {
+                System.out.println("Senha incorreta!");
+            }
 
-
+        } else if (tipoCofre.equalsIgnoreCase("fisico")) {
+            CofreFisico cofreFisico = new CofreFisico();
+            cofreFisico.imprimirInformacoes();
         }
+        scanner.close();
     }
 }
