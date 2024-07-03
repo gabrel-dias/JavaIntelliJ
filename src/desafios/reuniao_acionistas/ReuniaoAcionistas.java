@@ -1,4 +1,4 @@
-package desafios;
+package desafios.reuniao_acionistas;
 
 import java.util.ArrayList;
 import java.util.Date;

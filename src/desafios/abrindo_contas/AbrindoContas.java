@@ -1,4 +1,4 @@
-package desafios.resolvidos.abrindo_contas;
+package desafios.abrindo_contas;
 
 import java.util.Scanner;
 
