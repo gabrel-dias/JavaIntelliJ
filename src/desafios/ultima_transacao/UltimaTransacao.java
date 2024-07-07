@@ -36,4 +36,4 @@ class Transacao {
     }
 }
 
-// TODO quero entender mas tô sem tempo
+// TODO quero entender mas tô sem tempo, amanhã consigo
