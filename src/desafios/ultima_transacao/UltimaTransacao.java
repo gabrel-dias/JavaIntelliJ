@@ -9,9 +9,15 @@ public class UltimaTransacao {
 
         String entrada = scanner.nextLine();
         String[] partes = entrada.split(",");
+        // Solicita ao usuário que forneça os valores necessários para criar uma Transação.
+        // Detalhe: todos os dados devem ser separados por vírgula para utilização do método split().
 
-        // TODO: Solicitar ao usuário que forneça os valores necessários para criar uma Transacao.
-
+        String data = partes[0].trim();
+        String hora = partes[1].trim();
+        String descricao = partes[2].trim();
+        double valor = Double.parseDouble(partes[3].trim());
+        Transacao transacao = new Transacao(data, hora, descricao, valor);
+        transacao.imprimir();
     }
 }
 
@@ -35,5 +41,3 @@ class Transacao {
         System.out.printf("%.2f", this.valor);
     }
 }
-
-// TODO quero entender mas tô sem tempo, amanhã consigo. pronto, bora começar a festa
