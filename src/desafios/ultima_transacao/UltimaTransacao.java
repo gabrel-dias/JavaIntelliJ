@@ -15,7 +15,8 @@ public class UltimaTransacao {
         String data = partes[0].trim();
         String hora = partes[1].trim();
         String descricao = partes[2].trim();
-        double valor = Double.parseDouble(partes[3].trim());
+        double valor = Double.parseDouble(partes[3].trim()); // converte o trecho da string que
+        // foi digitada por ultimo para double
         Transacao transacao = new Transacao(data, hora, descricao, valor);
         transacao.imprimir();
     }
