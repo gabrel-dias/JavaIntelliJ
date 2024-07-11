@@ -14,6 +14,7 @@ public class Temperatura {
         System.out.println("Digite a temperatura em Celsius que será convertida: ");
         c = Double.parseDouble(entrada.nextLine());
 
+                // TODO fazer menu para escolher a medida desejada
         // atribuição das temperaturas convertidas
         int escolhaTemp = entrada.nextInt();
         switch (escolhaTemp) {
