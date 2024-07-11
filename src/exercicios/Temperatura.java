@@ -9,9 +9,30 @@ import java.util.Scanner;
 
 public class Temperatura {
     public static void main(String[] args) {
-        Scanner entradaTemp = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         double c, k, re, ra, f;
         System.out.println("Digite a temperatura em Celsius que será convertida: ");
-        c = Double.parseDouble(entradaTemp.nextLine());
+        c = Double.parseDouble(entrada.nextLine());
+
+        // atribuição das temperaturas convertidas
+        int escolhaTemp = entrada.nextInt();
+        switch (escolhaTemp) {
+            case 1:
+                f = c * 1.8d + 32d;
+                System.out.println("A temperatura " + c + "°C foi convertida para graus Fahrenheit e ficou " + f + "°F");
+                break;
+            case 2:
+                k = c + 273.15d;
+                System.out.println("A temperatura " + c + "°C foi convertida para graus Kelvin e ficou " + k + "°K");
+                break;
+            case 3:
+                re = c * 0.8d;
+                System.out.println("A temperatura " + c + "°C foi convertida para graus Réaumur e ficou " + re + "°Re");
+                break;
+            case 4:
+                ra = c * 1.8d + 32d + 459.67d;
+                System.out.println("A temperatura " + c + "°C foi convertida para graus Rankine e ficou " + ra + "°Ra");
+                break;
+        }
     }
 }
