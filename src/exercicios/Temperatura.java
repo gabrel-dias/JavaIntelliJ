@@ -14,7 +14,12 @@ public class Temperatura {
         System.out.println("Digite a temperatura em Celsius que será convertida: ");
         c = Double.parseDouble(entrada.nextLine());
 
-                // TODO fazer menu para escolher a medida desejada
+        System.out.println("Escolha a unidade para converter a temperatura " + c + "°C\n" +
+                "[1] => Fahrenheit (F)\n" +
+                "[2] => Kelvin (K)\n" +
+                "[3] => Réaumur (Re)\n" +
+                "[4] => Rankine (Ra)");
+
         // atribuição das temperaturas convertidas
         int escolhaTemp = entrada.nextInt();
         switch (escolhaTemp) {
