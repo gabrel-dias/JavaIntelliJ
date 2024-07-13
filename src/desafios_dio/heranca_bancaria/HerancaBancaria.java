@@ -1,4 +1,4 @@
-package desafios.heranca_bancaria;
+package desafios_dio.heranca_bancaria;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;

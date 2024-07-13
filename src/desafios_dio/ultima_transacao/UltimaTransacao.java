@@ -1,4 +1,4 @@
-package desafios.ultima_transacao;
+package desafios_dio.ultima_transacao;
 
 import java.util.Scanner;
 

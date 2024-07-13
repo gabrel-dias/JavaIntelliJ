@@ -1,9 +1,9 @@
 # Stream API Java - Principais Métodos
 
 Vamos praticar e aprofundar nossos conhecimentos na poderosa Stream API do Java!<br>
-Abaixo, apresentamos uma lista de desafios envolvendo operações com streams para exercitar suas habilidades e criatividade.
+Abaixo, apresentamos uma lista de desafios_dio envolvendo operações com streams para exercitar suas habilidades e criatividade.
 
-Para todos os desafios, utilizem a lista de números inteiros fornecida:
+Para todos os desafios_dio, utilizem a lista de números inteiros fornecida:
 
 ```java
 List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5, 4, 3);
@@ -88,10 +88,10 @@ Com a Stream API, encontre a soma dos números da lista que são divisíveis tan
 
 ### Instruções:
 - Cada desafio deverá ser implementado em classes separadas neste mesmo pacote.
-- Os desafios podem ser executados individualmente a partir dos métodos main de cada classe.
+- Os desafios_dio podem ser executados individualmente a partir dos métodos main de cada classe.
 - Utilize a Stream API para implementar as operações solicitadas em cada desafio.
 
-Divirta-se resolvendo os desafios da Stream API do Java!<br>
+Divirta-se resolvendo os desafios_dio da Stream API do Java!<br>
 Dúvidas: https://github.com/cami-la/ganhando_produtividade_com_Stream_API_Java/issues
 
 ---

@@ -1,5 +1,5 @@
 // TODO revisar toda a lógica desse código
-package desafios.cofres_seguros;
+package desafios_dio.cofres_seguros;
 
 import java.util.Scanner;
 
