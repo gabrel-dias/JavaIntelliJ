@@ -11,9 +11,22 @@ import java.util.Scanner;
 
 public class HomensMulheres {
     public static void main(String[] args) {
-        int sexo, qtHomens, qtMulheres;
-        double media, alturaHomem, alturaMulher, maiorAltura, menorAltura;
+        int sexo, qtHomens = 0, qtMulheres = 0;
+        double mediaAlturaHomem, alturaHomem, alturaMulher, maiorAltura, menorAltura;
 
         Scanner entrada = new Scanner(System.in);
+        for (int i = 0; i <= 10; i++) {
+            System.out.println("Para a " + i + " pessoa, será:\n" +
+                    "[1] homem\n" +
+                    "[2] mulher");
+            sexo = entrada.nextInt();
+
+            if (sexo == 1) {
+                qtHomens = qtHomens + 1;
+                System.out.println("Digite a altura do homem: ");
+                alturaHomem = Double.parseDouble(entrada.nextLine());
+                mediaAlturaHomem = alturaHomem / 10;
+            }
+        }
     }
 }
