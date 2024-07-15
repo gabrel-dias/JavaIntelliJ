@@ -1,7 +1,10 @@
 package exercicios.javaguanabara;
 
+import java.awt.*;
+
 public class ResolucaoTela {
     public static void main(String[] args) {
-        // TODO fazer um programa que identifique a resolução do monitor
+        Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
+        System.out.println("A resolução do sistema é: " + tela);
     }
 }
