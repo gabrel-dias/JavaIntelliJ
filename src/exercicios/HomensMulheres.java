@@ -16,7 +16,7 @@ public class HomensMulheres {
 
         Scanner entrada = new Scanner(System.in);
         for (int i = 0; i <= 10; i++) {
-            System.out.println("Para a " + i + " pessoa, será:\n" +
+            System.out.println("A " + (i+1) + " pessoa, será:\n" +
                     "[1] homem\n" +
                     "[2] mulher");
             sexo = entrada.nextInt();
@@ -24,7 +24,7 @@ public class HomensMulheres {
             if (sexo == 1) {
                 qtHomens = qtHomens + 1;
                 System.out.println("Digite a altura do homem: ");
-                alturaHomem = Double.parseDouble(entrada.nextLine());
+                alturaHomem= entrada.nextDouble();
                 mediaAlturaHomem = alturaHomem / 10;
             }
         }
