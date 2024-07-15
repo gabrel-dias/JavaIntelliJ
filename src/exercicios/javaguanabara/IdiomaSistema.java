@@ -1,7 +1,11 @@
 package exercicios.javaguanabara;
+
+import java.util.Locale;
+
 public class IdiomaSistema {
     public static void main(String[] args) {
-// TODO fazer um programa que reconheça o idioma do sistema
-
+        Locale local = Locale.getDefault(); // pega os valores padrões do sistema no qual a JVM está instalada
+        System.out.println("O país do usuário é: " + local.getDisplayCountry());
+        System.out.println("O idioma do usuário é: " + local.getDisplayLanguage());
     }
 }
