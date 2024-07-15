@@ -1,4 +1,4 @@
-package exercicios;
+package exercicios.javaguanabara;
 
 import java.util.Date;
 
