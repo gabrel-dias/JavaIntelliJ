@@ -13,12 +13,12 @@ public class DataRelogio extends JFrame { // A CLASSE DEVE HERDAR O JFRAME
 
     //construtor do painel
     public DataRelogio() {
-        setTitle("Data e Hora"); //nome da janela
-        setSize(300, 200);
-        setContentPane(panel1);
-        setVisible(true);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("Data e Hora"); // nome da janela
+        setSize(400, 200); // resolução da janela
+        setContentPane(panel1); // deixa os conteúdos do painel visíveis
+        setVisible(true); // deixa a janela visível
+        setLocationRelativeTo(null); // na sua ausência, coloca a janela no canto da dela. com o valor null, no meio
+        setDefaultCloseOperation(EXIT_ON_CLOSE); // escolhe uma ação que ocorre quando fechar a janela
 
         // ação do botão
         btnDataHora.addActionListener(new ActionListener() {
