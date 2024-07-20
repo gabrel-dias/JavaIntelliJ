@@ -19,6 +19,7 @@ public class IdiomaSistema extends JFrame {
         setSize(450, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         mostrarIdiomaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
