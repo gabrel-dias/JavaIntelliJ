@@ -26,9 +26,7 @@ public class SomaValores extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int n1 = Integer.parseInt(txtN1.getText());
                 int n2 = Integer.parseInt(txtN2.getText());
-                String resultado = Integer.toString(n1 + n2);
-
-                lblResultado.setText(resultado);
+                lblResultado.setText(Integer.toString(n1 + n2));
             }
         });
     }
