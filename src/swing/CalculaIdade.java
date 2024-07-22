@@ -4,13 +4,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
-import java.util.Date;
 
 public class CalculaIdade extends JFrame {
     private JPanel pnlCalcula;
-    private JSpinner spnAno;
     private JButton btnCalculaIdade;
     private JLabel lblAnos;
+    private JTextField txtAno;
 
     public CalculaIdade() {
         setContentPane(pnlCalcula);
@@ -25,7 +24,7 @@ public class CalculaIdade extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Calendar anoAtual = Calendar.getInstance();
-                int anoNascimento = (int) spnAno.getValue();
+                int anoNascimento = Integer.parseInt(txtAno.getText());
                 lblAnos.setText(Integer.toString(anoAtual.get(Calendar.YEAR) - anoNascimento));
             }
         });
