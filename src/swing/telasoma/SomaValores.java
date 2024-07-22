@@ -20,7 +20,6 @@ public class SomaValores extends JFrame {
         setResizable(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
- // vou estudar agora
         btnSoma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

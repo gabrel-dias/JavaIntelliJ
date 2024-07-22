@@ -24,7 +24,7 @@ public class IdiomaSistema extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Locale idioma = Locale.getDefault();
-                lblIdioma.setText("Seu idioma é o" + idioma.getDisplayLanguage());
+                lblIdioma.setText("Seu idioma é o " + idioma.getDisplayName());
             }
         });
     }
