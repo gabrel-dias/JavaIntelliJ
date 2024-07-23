@@ -1,5 +1,7 @@
 package swing.supercalculadora;
 
+import swing.calculadoraidade.CalculaIdade;
+
 import javax.swing.*;
 
 public class SuperCalculadora extends JFrame {
@@ -11,4 +13,14 @@ public class SuperCalculadora extends JFrame {
     private JLabel lblRaizQuadrada;
     private JLabel lblRaizCubica;
     private JLabel lblValorAbsoluto;
+
+    public SuperCalculadora(){
+        setContentPane(pnlCalculadora);
+        setVisible(true);
+        setSize(450,230);
+    }
+
+    public static void main(String[] args) {
+        new SuperCalculadora();
+    }
 }
