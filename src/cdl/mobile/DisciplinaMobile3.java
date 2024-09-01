@@ -1,4 +1,4 @@
-package mobile;
+package cdl.mobile;
 
 import java.util.Scanner;
 

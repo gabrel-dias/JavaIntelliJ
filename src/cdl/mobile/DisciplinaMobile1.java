@@ -1,4 +1,4 @@
-package mobile;
+package cdl.mobile;
 
 public class DisciplinaMobile1 {
     public static void main(String[] args) {
