@@ -13,16 +13,22 @@ public class teste {
         double peso = sc.nextDouble();
         System.out.println("Peso digitado: " + peso + " kg");
 
-        DecimalFormatSymbols virgula = new DecimalFormatSymbols(Locale.getDefault());
-        DecimalFormat formatador = new DecimalFormat("#,##0.00", virgula);
         System.out.println("Digite a sua altura em centímetros (exemplo: 160):");
         String alturaStr = sc.next();
         double altura = Double.parseDouble(alturaStr.substring(0, alturaStr.length() - 2) + "." + alturaStr.substring(alturaStr.length() - 2));
-        System.out.println("Altura digitada: " + formatador.format(altura) + "m");
+        System.out.println("Altura digitada: " + formatarAltura(altura) + "m");
+
         sc.close();
+
+        DecimalFormatSymbols virgula = new DecimalFormatSymbols(Locale.getDefault());
+        DecimalFormat formatador = new DecimalFormat("#,##0.00", virgula);
 
         double imc = peso / (Math.pow(altura, 2));
         System.out.println("O seu IMC é: " + formatador.format(imc));
     }
 
+    private static String formatarAltura(double altura) {
+        DecimalFormat formatadorAltura = new DecimalFormat("#0.00");
+        return formatadorAltura.format(altura);
+    }
 }

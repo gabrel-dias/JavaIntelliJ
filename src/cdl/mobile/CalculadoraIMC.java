@@ -35,14 +35,14 @@ public class CalculadoraIMC {
         double peso = sc.nextDouble();
         System.out.println("Peso digitado: " + peso + "kg");
         System.out.println("Digite a sua altura em metros:");
-        String altura = sc.next();
-        System.out.println(altura.substring(0,altura.length()-2) + "." + altura.substring(altura.length()-2));
-//        System.out.println("Altura digitada: " + altura+"m");
+        String alturaString = sc.next();
+        double altura = Double.parseDouble(alturaString.substring(0,alturaString.length()-2) + "." + alturaString.substring(alturaString.length()-2));
         sc.close();
 
         // definindo formatadores
         DecimalFormatSymbols virgula = new DecimalFormatSymbols(Locale.getDefault());
         DecimalFormat formatador = new DecimalFormat("#,##0.00", virgula);
+        System.out.println("Altura digitada: " + formatador.format(altura)+"m");
 
         // calculando resultado
 //        double imc = peso / (Math.pow(altura, 2));
