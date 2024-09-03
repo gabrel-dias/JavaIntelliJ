@@ -33,8 +33,11 @@ public class CalculadoraIMC {
         // pedindo entradas do usuário e armazenando-as em variáveis double
         System.out.println("Digite o seu peso em quilos:");
         double peso = sc.nextDouble();
+        System.out.println("Peso digitado: " + peso + "kg");
         System.out.println("Digite a sua altura em metros:");
-        double altura = sc.nextDouble();
+        String altura = sc.next();
+        System.out.println(altura.substring(0,altura.length()-2) + "." + altura.substring(altura.length()-2));
+//        System.out.println("Altura digitada: " + altura+"m");
         sc.close();
 
         // definindo formatadores
@@ -42,7 +45,7 @@ public class CalculadoraIMC {
         DecimalFormat formatador = new DecimalFormat("#,##0.00", virgula);
 
         // calculando resultado
-        double imc = peso / (Math.pow(altura, 2));
-        System.out.println("O seu IMC é: " + formatador.format(imc));
+//        double imc = peso / (Math.pow(altura, 2));
+//        System.out.println("O seu IMC é: " + formatador.format(imc));
     }
 }
