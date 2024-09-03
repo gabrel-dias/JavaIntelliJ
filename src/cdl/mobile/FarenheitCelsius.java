@@ -1,4 +1,4 @@
-/*
+package cdl.mobile;/*
 Faça um programa em Java que recebe uma temperatura em graus fahrenheit e transforme em graus celsius.
 Caso o resultado da temperatura seja maior ou igual a 40o celsius, mostre uma mensagem:
 ESTÁ QUENTE!, senão mostre TEMPERATURA FRIA OU SUPORTÁVEL.
