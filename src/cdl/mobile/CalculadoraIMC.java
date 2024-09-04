@@ -28,24 +28,38 @@ Seu peso ideal deve ficar entre: 47,00 e 64,00 kg ( está 1,30 kg acima do peso 
  */
 public class CalculadoraIMC {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        // agora preciso setar o Locale para o padrão que a JVM deveria ter, mas por algum motivo ela prefere usar
+        // o padrão do meu sistema (pt_BR)
+        Scanner sc = new Scanner(System.in).useLocale(Locale.US);
 
         // definindo formatadores
-//        DecimalFormatSymbols virgula = new DecimalFormatSymbols(Locale.getDefault());
-//        DecimalFormat formatador = new DecimalFormat("#,##0.00", virgula);
+        DecimalFormatSymbols virgula = new DecimalFormatSymbols(Locale.getDefault());
+        DecimalFormat formatador = new DecimalFormat("#,##0.00", virgula);
 
         // pedindo entradas do usuário e armazenando-as em variáveis double
         System.out.println("Digite o seu peso em quilos:");
         double peso = sc.nextDouble();
-        System.out.println("Peso digitado: " + peso + "kg");
+        System.out.println("Peso digitado: " + formatador.format(peso) + "kg");
         System.out.println("Digite a sua altura em metros:");
         double altura = sc.nextDouble();
-        System.out.println("Altura digitada: " + altura + "m");
+        System.out.println("Altura digitada: " + formatador.format(altura) + "m");
         sc.close();
 
-
         // calculando resultado
-//        double imc = peso / (Math.pow(altura, 2));
-//        System.out.println("O seu IMC é: " + formatador.format(imc));
+        double imc = peso / (Math.pow(altura, 2));
+        System.out.println("O seu IMC é: " + formatador.format(imc));
+
+        if (imc <= 18.5d) {
+            System.out.println("Seu IMC é classificado como: \"Baixo peso\"");
+        } else if (imc > 18.d && imc <= 24.9d) {
+            System.out.println("Seu IMC é classificado como: \"Eutrofia (peso adequado)\"");
+        } else if (imc > 25d && imc <= 29.d) {
+            System.out.println("Seu IMC é classificado como: \"Sobrepeso\"");
+        } else if (imc > 30d && imc <= 34.9) {
+            System.out.println("Seu IMC é classificado como: \"Obesidade Grau 1\"");
+        } else if (imc > 35d && imc <= 39.9d) {
+            System.out.println("Seu IMC é classificado como: \"Obesidade Grau 2\"");
+        }
+        else System.out.println("Seu IMC é classificado como: \"Obsidade Extrema\"");
     }
 }
