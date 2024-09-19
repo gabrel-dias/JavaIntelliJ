@@ -6,7 +6,7 @@ public class PrimitiveTypesChallenge {
         short s = 20;
         int i = 50;
         int soma = b + s + i;
-        long l = 50000L + 10L * soma;
+        long l = 50000L + 10 * soma;
         System.out.println(l);
     }
 }
