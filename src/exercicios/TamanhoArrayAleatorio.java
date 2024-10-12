@@ -19,6 +19,7 @@ public class TamanhoArrayAleatorio {
             } else if (resposta == 2) {
                 System.out.print("Digite o valor que você deseja: ");
                 tamanhoVetor = sc.nextInt();
+                sc.close();
                 break;
             }
         } while (resposta != 0);
