@@ -40,7 +40,7 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    public void apresentar() {
+    public void apresentarPessoa() {
         System.out.println("Meu nome é " + nome + ", sou portador do CPF " + cpf + " e tenho " + idade + " anos");
     }
 }
