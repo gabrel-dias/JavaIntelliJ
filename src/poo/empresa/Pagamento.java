@@ -1,4 +1,4 @@
-package poo.herancaepolimorfismo;
+package poo.empresa;
 
 public interface Pagamento {
     void fazerPix(String chavePix);

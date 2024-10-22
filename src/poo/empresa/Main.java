@@ -1,7 +1,4 @@
-package poo;
-
-import poo.herancaepolimorfismo.Funcionario;
-import poo.herancaepolimorfismo.Gestor;
+package poo.empresa;
 
 public class Main {
     public static void main(String[] args) {

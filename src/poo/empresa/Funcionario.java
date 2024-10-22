@@ -1,4 +1,4 @@
-package poo.herancaepolimorfismo;
+package poo.empresa;
 
 public class Funcionario extends Pessoa implements Pagamento {
     private String matricula;
@@ -6,7 +6,7 @@ public class Funcionario extends Pessoa implements Pagamento {
     private int salario;
 
     public Funcionario(String nome, String cpf, int idade, String matricula, String cargo, int salario) {
-        // recebe is atributos da SUPER classe, a quem está herdando
+        // recebe os atributos da SUPER classe, a quem está herdando
         super(nome, cpf, idade);
         this.matricula = matricula;
         this.cargo = cargo;

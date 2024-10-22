@@ -1,4 +1,4 @@
-package poo.herancaepolimorfismo;
+package poo.empresa;
 
 public class Gestor extends Funcionario {
     public Gestor(String nome, String cpf, int idade, String matricula, String cargo, int salario) {
