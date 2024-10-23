@@ -1,13 +1,13 @@
-package poo.arquivo;
+package poo.manipulacao;
 
 import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
         try {
-            InputStream inputStream = new FileInputStream("src/poo/arquivo/livros.csv"); // recebe o caminho de um arquivo que será manipulado
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream); // preparada a estrutura para começar a ler os dados que foram passado pelo InputStream
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader); // manipula os dados
+            InputStream inputStream = new FileInputStream("src/poo/manipulacao/livros.csv"); // representa uma corrente de dados de entrada (stream) e recebe o caminho de um arquivo que será manipulado
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream); // converte bytes, provenientes da corrente de dados do InputStream, para caracteres no formato de um Reader
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader); // adiciona funcionalidade de buffer a um Reader
 
             String linha = bufferedReader.readLine();
             while (linha != null) {
