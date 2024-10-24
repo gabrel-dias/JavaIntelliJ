@@ -1,13 +1,13 @@
 package poo.manipulacao;
 
-public abstract class Livros {
+public class Livro {
     String titulo;
     String autor;
     short anoPublicacao;
     String genero;
     short qtdPaginas;
 
-    public Livros(String titulo, String autor, short anoPublicacao, String genero, short qtdPaginas) {
+    public Livro(String titulo, String autor, short anoPublicacao, String genero, short qtdPaginas) {
         this.titulo = titulo;
         this.autor = autor;
         this.anoPublicacao = anoPublicacao;
@@ -21,5 +21,6 @@ public abstract class Livros {
         System.out.println("Ano de publicação: " + anoPublicacao);
         System.out.println("Gênero: " + genero);
         System.out.println("Quatidade de págias: " + qtdPaginas);
+        System.out.println("===================");
     }
 }
