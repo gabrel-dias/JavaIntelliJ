@@ -9,10 +9,12 @@ public class Main {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream); // converte bytes, provenientes da corrente de dados do InputStream, para caracteres no formato de um Reader
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader); // adiciona funcionalidade de buffer a um Reader
 
-            String linha = bufferedReader.readLine();
-            while (linha != null) {
-                System.out.println(linha);
-                linha = bufferedReader.readLine();
+
+            String[] texto = new String[5];
+            String linha;
+            while ((linha = bufferedReader.readLine()) != null) {
+                texto = linha.split(",");
+                System.out.println(texto[0]);
             }
 
             inputStream.close();
