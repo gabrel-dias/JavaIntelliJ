@@ -1,6 +1,7 @@
 package poo.manipulacao;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +10,8 @@ public class Main {
             InputStream inputStream = new FileInputStream("src/poo/manipulacao/livros.csv"); // representa uma corrente de dados de entrada (stream) e recebe o caminho de um arquivo que será manipulado
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream); // converte bytes, provenientes da corrente de dados do InputStream, para caracteres no formato de um Reader
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader); // adiciona funcionalidade de buffer a um Reader
+
+            //TODO criar um novo arquivo com todos os dados manipulados
 
             // variáveis para manipular as strings
             String[] texto;
@@ -22,6 +25,8 @@ public class Main {
             String genero;
             short qtdPaginas;
 
+            ArrayList<Livro> livrosArray = new ArrayList<>();
+
             while ((linha = bufferedReader.readLine()) != null) {
                 // separa todos os valores das linhas por vírgulas e os atribui em um array
                 texto = linha.split(",");
@@ -33,13 +38,20 @@ public class Main {
                 qtdPaginas = Short.parseShort(texto[4]);
 
                 // usa como parâmetro as variáveis contendo os elementos extraídos da linha e mostra os objetos
-                livro = new Livro(titulo,autor,anoPublicacao,genero,qtdPaginas);
-                livro.mostrarLivro();
+                livro = new Livro(titulo, autor, anoPublicacao, genero, qtdPaginas);
+                livrosArray.add(livro);
             }
-
+            // fecha os objetos para evitar vazamento de recursos
             inputStream.close();
             inputStreamReader.close();
             bufferedReader.close();
+
+            // acessa a lista de arrays que foi criada com os objetos de livros
+            for (int i = 0; i < livrosArray.size(); i++) {
+                System.out.println("Livro " + (i + 1));
+                livrosArray.get(i).mostrarLivro();
+            }
+
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado!");
 
