@@ -38,6 +38,7 @@ public class Main {
                 // usa como parâmetro as variáveis contendo os elementos extraídos da linha e mostra os objetos
                 livro = new Livro(titulo, autor, anoPublicacao, genero, qtdPaginas);
                 livrosArray.add(livro);
+                livro.limparArquivo();
             }
             // fecha os objetos para evitar vazamento de recursos
             inputStream.close();
@@ -46,12 +47,9 @@ public class Main {
 
             // acessa a lista de arrays que foi criada com os objetos de livros
             for (int i = 0; i < livrosArray.size(); i++) {
-                System.out.println("Livro " + (i + 1));
-                livrosArray.get(i).mostrarLivro();
-                livrosArray.get(i).escreverLivro();
-
-
+                livrosArray.get(i).escreverLivro(i + 1);
             }
+            System.out.println("Arquivo criado com sucesso!");
 
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado!");

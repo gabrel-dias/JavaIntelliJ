@@ -9,26 +9,6 @@ public class Livro {
     String genero;
     short qtdPaginas;
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public short getAnoPublicacao() {
-        return anoPublicacao;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public short getQtdPaginas() {
-        return qtdPaginas;
-    }
-
     public Livro(String titulo, String autor, short anoPublicacao, String genero, short qtdPaginas) {
         this.titulo = titulo;
         this.autor = autor;
@@ -43,20 +23,32 @@ public class Livro {
         System.out.println("Ano de publicação: " + anoPublicacao);
         System.out.println("Gênero: " + genero);
         System.out.println("Quatidade de págias: " + qtdPaginas);
-        System.out.println("===================");
+        System.out.println("==========================");
     }
 
-    public void escreverLivro() throws IOException {
-        OutputStream outputStream = null;
-        try {
-            outputStream = new FileOutputStream("src/poo/manipulacao/LivrosArrumados.csv");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+    public void limparArquivo() {
+        try (FileOutputStream fileOutputStream = new FileOutputStream("src/poo/manipulacao/LivrosArrumados.csv");
+        ) {
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-        BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
-
-        bufferedWriter.write("Título: " + titulo);
     }
 
+    public void escreverLivro(int numeroLivro) {
+        try (
+                FileOutputStream fileOutputStream = new FileOutputStream("src/poo/manipulacao/LivrosArrumados.csv", true);
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+                BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter)
+        ) {
+            bufferedWriter.write("Livro " + numeroLivro + "\n");
+            bufferedWriter.write("Título: " + titulo + "\n");
+            bufferedWriter.write("Autor: " + autor + "\n");
+            bufferedWriter.write("Ano de publicação: " + anoPublicacao + "\n");
+            bufferedWriter.write("Gênero: " + genero + "\n");
+            bufferedWriter.write("Quatidade de páginas: " + qtdPaginas + "\n");
+            bufferedWriter.write("===================\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
