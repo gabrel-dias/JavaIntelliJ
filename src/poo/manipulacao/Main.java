@@ -11,8 +11,6 @@ public class Main {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream); // converte bytes, provenientes da corrente de dados do InputStream, para caracteres no formato de um Reader
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader); // adiciona funcionalidade de buffer a um Reader
 
-            //TODO criar um novo arquivo com todos os dados manipulados
-
             // variáveis para manipular as strings
             String[] texto;
             String linha;
@@ -50,6 +48,9 @@ public class Main {
             for (int i = 0; i < livrosArray.size(); i++) {
                 System.out.println("Livro " + (i + 1));
                 livrosArray.get(i).mostrarLivro();
+                livrosArray.get(i).escreverLivro();
+
+
             }
 
         } catch (FileNotFoundException e) {
