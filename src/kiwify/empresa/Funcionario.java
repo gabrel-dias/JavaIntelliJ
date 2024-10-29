@@ -1,4 +1,4 @@
-package poo.empresa;
+package kiwify.empresa;
 
 public class Funcionario extends Pessoa implements Pagamento {
     private String matricula;

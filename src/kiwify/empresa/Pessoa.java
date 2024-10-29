@@ -1,4 +1,4 @@
-package poo.empresa;
+package kiwify.empresa;
 
 public abstract class Pessoa {
     // atributos são características ou variáveis que armazenam dados e possuem modificadores de acesso
