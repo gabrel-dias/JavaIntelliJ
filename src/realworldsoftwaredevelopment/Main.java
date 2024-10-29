@@ -1,33 +1,23 @@
 package realworldsoftwaredevelopment;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        String linha;
-        String[] coluna;
-        ArrayList<Integer> gastosArrayList = new ArrayList<>();
-        try (
-                InputStream inputStream = new FileInputStream("src/resources/bank-data-simple.csv");
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader)
+    public static void main(String[] args) throws IOException {
+        final String ARQUIVOCSV = "src/resources/bank-data-simple.csv";
+        final Path caminho = Paths.get(ARQUIVOCSV);
+        final List<String> linhas = Files.readAllLines(caminho);
+        double total =0d;
 
-        ) {
-            while ((linha = bufferedReader.readLine()) != null) {
-                coluna = linha.split(",");
-                gastosArrayList.add(Integer.parseInt(coluna[1]));
-            }
-            int total =0;
-            for (int integer : gastosArrayList) {
-                total += integer;
-                System.out.println(total);
-            }
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        for (String linha : linhas){
+            String[] colunas = linha.split(",");
+            total += colunas[1];
         }
-
     }
+
 }
