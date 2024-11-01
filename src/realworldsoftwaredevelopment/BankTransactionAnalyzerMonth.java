@@ -17,11 +17,14 @@ public class BankTransactionAnalyzerMonth {
         final Path path = Paths.get(RESOURCES + "bank-data-simple.csv");
         final List<String> lines = Files.readAllLines(path);
         double total = 0d;
+        //cria um formatador padrão para data
         final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         for (final String line : lines) {
             final String[] columns = line.split(",");
+            // cria um objeto de data, a partir de uma string mais o formatador de data
             final LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN);
-            if (date.getMonth() == Month.JANUARY) {
+            if (date.getMonth() == Month.JANUARY) { // pega o mês do objeto de data e compara com a constante de Month
+                // soma os valores apenas das transações que foram em janeiro
                 final double amount = Double.parseDouble(columns[1]);
                 total += amount;
             }
