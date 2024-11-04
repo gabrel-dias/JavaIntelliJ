@@ -21,6 +21,8 @@ public class Nivelamento4 {
         System.out.println("Digite o valor da sua hora trabalhada: ");
         valorHora = sc.nextDouble();
 
-
+        salario = horasTrabalhadas * valorHora;
+        System.out.printf("Matrícula: %d\nSalário: R$ %.2f", matricula, salario);
+        System.out.println("Matrícula: \nSalário: R$");
     }
 }
