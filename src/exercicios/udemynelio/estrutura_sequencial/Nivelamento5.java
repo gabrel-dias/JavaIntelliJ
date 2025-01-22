@@ -1,9 +1,13 @@
-package exercicios.udemynelio;
+package exercicios.udemynelio.estrutura_sequencial;
 
 import java.util.Scanner;
 
 public class Nivelamento5 {
     public static void main(String[] args) {
+        /*
+        Fazer um programa para ler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o
+        código de uma peça 2, o número de peças 2 e o valor unitário de cada peça 2. Calcule e mostre o valor a ser pago.
+         */
         int codigoPeca1, codigoPeca2, quantidadePeca1, quantidadePeca2;
         double precoPeca1, precoPeca2, total;
         Scanner sc = new Scanner(System.in);

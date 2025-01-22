@@ -1,4 +1,4 @@
-package exercicios.udemynelio;
+package exercicios.udemynelio.estrutura_sequencial;
 
 import java.util.Scanner;
 
