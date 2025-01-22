@@ -2,7 +2,7 @@ package exercicios.udemynelio.estrutura_sequencial;
 
 import java.util.Scanner;
 
-public class Nivelamento3 {
+public class Exercicio03 {
     public static void main(String[] args) {
         /*
         Fazer um programa para ler quatro valores inteiros A, B, C e D. A seguir, calcule e mostre a diferença do produto

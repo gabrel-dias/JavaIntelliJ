@@ -2,7 +2,7 @@ package exercicios.udemynelio.estrutura_sequencial;
 
 import java.util.Scanner;
 
-public class Nivelamento5 {
+public class Exercicio05 {
     public static void main(String[] args) {
         /*
         Fazer um programa para ler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o
