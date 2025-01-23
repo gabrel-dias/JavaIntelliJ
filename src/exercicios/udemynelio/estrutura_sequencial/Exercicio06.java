@@ -1,7 +1,6 @@
 package exercicios.udemynelio.estrutura_sequencial;
 
 import java.util.Locale;
-import java.util.Scanner;
 
 public class Exercicio06 {
     public static void main(String[] args) {
@@ -16,33 +15,32 @@ public class Exercicio06 {
         */
 
         Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
-        double a, b, c = 0;
-        a = sc.nextDouble();
-        b = sc.nextDouble();
-        c = sc.nextDouble();
-        double triaguloRetangulo, circulo, trapezio, quadrado, retangulo = 0;
+        double a, b, c;
+        a = 3.0d;
+        b = 4.0d;
+        c = 5.2d;
+        double triaguloRetangulo, circulo, trapezio, quadrado, retangulo;
 
         // área do triângulo
         triaguloRetangulo = (a * c) / 2;
 
         // área do círculo
-
+        circulo = Math.PI * (Math.pow(c, 2));
 
         // área do trapézio
-
+        trapezio = ((b + a) * c) / 2;
 
         // área do quadrado
-
+        quadrado = Math.pow(b, 2);
 
         // área do retângulo
-
+        retangulo = b * a;
 
         //resultados
         System.out.printf("TRIANGULO: %.3f%n", triaguloRetangulo);
-        System.out.println("CIRCULO: ");
-        System.out.println("TRAPEZIO: ");
-        System.out.println("QUADRADO: ");
-        System.out.println("RETANGULO: ");
+        System.out.printf("CIRCULO: %.3f%n", circulo);
+        System.out.printf("TRAPEZIO: %.3f%n", trapezio);
+        System.out.printf("QUADRADO: %.3f%n", quadrado);
+        System.out.printf("RETANGULO: %.3f%n", retangulo);
     }
 }
