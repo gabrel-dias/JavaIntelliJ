@@ -1,4 +1,4 @@
-package exercicios.udemynelio;
+package exercicios.udemynelio.exemplos;
 
 import java.util.Scanner;
 
