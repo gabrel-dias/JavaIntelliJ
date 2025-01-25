@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Exercicio02 {
     public static void main(String[] args) {
+        /*
+        Fazer um programa para ler um número inteiro e dizer se este número é par ou ímpar.
+         */
         int opcao = 1;
         Scanner sc = new Scanner(System.in);
         while (opcao == 1) {
