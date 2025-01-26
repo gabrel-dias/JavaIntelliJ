@@ -21,13 +21,16 @@ public class ProgramaTriangulo {
         y.setB(sc.nextDouble());
         y.setC(sc.nextDouble());
 
+        // triângulo X
         System.out.println("As medidas do triângulo X são:\n" +
                 x.getA() + ", " + x.getB() + ", " + x.getC());
+        System.out.println("A área do triângulo Y é: " + x.CalcularArea());
 
+        // triângulo Y
         System.out.println("As medidas do triângulo Y são:\n" +
                 y.getA() + ", " + y.getB() + ", " + y.getC());
+        System.out.println("A área do triângulo Y é: " + y.CalcularArea());
     }
-
 }
 
 class Triangulo {
@@ -59,5 +62,10 @@ class Triangulo {
         this.c = c;
     }
 
+    public String CalcularArea() {
+        double p = (a + b + c) / 2.0;
+        double area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        return String.format("%.4f%n", area);
+    }
 }
 
