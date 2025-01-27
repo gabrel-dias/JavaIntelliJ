@@ -5,7 +5,7 @@ import exercicios.udemynelio.orientacao_objetos.entidades.Retangulo;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Programa {
+public class Programa1 {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
