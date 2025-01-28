@@ -14,20 +14,24 @@ public class Aplicativo {
         int numeroConta = Integer.parseInt(sc.nextLine());
         System.out.print("Digite o nome do titular: ");
         String titular = sc.nextLine();
-        System.out.print("Deseja fazer o primeiro depósito (s/n)? ");
-        Character opcaoDeposito = sc.next().charAt(0);
+        char opcaoDeposito;
         double deposito = 0d;
+        do {
+            System.out.println("Deseja fazer o primeiro depósito (s/n)? ");
+            opcaoDeposito = sc.next().toLowerCase().charAt(0);
 
-        // se houver deposito inicial
-        if (opcaoDeposito.equals('s')) {
-            System.out.println("Digite o valor do depósito inicial: ");
-            deposito = sc.nextDouble();
-        }
+            // se houver deposito inicial
+            if (opcaoDeposito == 's') {
+                System.out.println("Digite o valor do depósito inicial: ");
+                deposito = sc.nextDouble();
+            }
+            if (opcaoDeposito != 's' && opcaoDeposito != 'n')
+                System.out.println("Opção inválida digite apenas \"Sim\" ou \"Não\"");
+        } while (opcaoDeposito != 's' && opcaoDeposito != 'n');
         Conta conta = new Conta(numeroConta, titular);
-        if (deposito >= 0d)
-            conta.depositoInicial(deposito);
+        if (deposito >= 0d) conta.depositoInicial(deposito);
 
-        System.out.println("Dados da conta:\n" + conta);
+        System.out.println("Dados da conta criada:\n" + conta);
 
         System.out.print("Digite o valor do depósito: ");
         deposito = sc.nextDouble();
@@ -39,5 +43,23 @@ public class Aplicativo {
         conta.fazerSaque(saque);
 
         System.out.println("Saldo atualizado:\n" + conta);
+
+        char opcaoTrocaNome;
+        do {
+            System.out.println("Deseja mudar o nome do titular (s/n)? ");
+            opcaoTrocaNome = sc.next().toLowerCase().charAt(0);
+            if (opcaoTrocaNome == 's') {
+                System.out.println("Digite o novo nome do titular: ");
+                sc.nextLine();
+                String novoNomeTitular = sc.nextLine();
+                conta.mudarNomeTitular(novoNomeTitular);
+            } else if (opcaoTrocaNome == 'n') {
+                System.out.println("O nome do titular não foi alterado.");
+            } else
+                System.out.println("Opção inválida digite apenas \"Sim\" ou \"Não\"");
+
+
+        } while (opcaoTrocaNome != 's' && opcaoTrocaNome != 'n');
+        System.out.println("Dados do titular atualizados:\n" + conta);
     }
 }

@@ -5,16 +5,7 @@ public class Conta {
     private String titular;
     private double saldo;
 
-
-    /* o depósito inicial é na abertura da conta é opcional
-    TODO titular mudar de nome em caso de casamento
-    o saldo da conta não pode ser alterado livremente (implementar mecanismo para proteger)
-    o saldo só aumenta com depósitos e diminui nos saques, nos quais é cobrado uma taxa de R$ 5
-    a conta pode ficar com saldo negativo se ele não for suficiente para realizar o saque e/ou pagar a taxa
-    TODO fazer o programa de criação da conta
-    dar opção para que seja depositado o valor inicial ou não
-    realizar um depósito e depois um saque, sempre mostrando os dados da conta após cada operação
-    */
+    // TODO titular mudar de nome em caso de casamento
 
     public Conta(int numeroConta, String titular) {
         this.numeroConta = numeroConta;
@@ -51,6 +42,10 @@ public class Conta {
 
     public void fazerSaque(double saque) {
         saldo -= saque + 5d;
+    }
+
+    public void mudarNomeTitular(String nome){
+        setTitular(nome);
     }
 
     @Override
