@@ -1,12 +1,18 @@
 package exercicios.udemynelio.exemplos.produto.entities;
 
 public class Product {
-    public String name;
-    public double price;
-    public int quantity;
+    private String name;
+    private double price;
+    private int quantity;
 
-    public Product(String name, double price) {
+    public Product() {
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -14,11 +20,11 @@ public class Product {
         return price * quantity;
     }
 
-    public void addProducts(int quantity) {
+    public void addQuantityProducts(int quantity) {
         this.quantity += quantity;
     }
 
-    public void removeProducts(int quantity) {
+    public void removeQuantityProducts(int quantity) {
         this.quantity -= quantity;
 
     }

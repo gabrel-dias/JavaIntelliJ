@@ -16,17 +16,19 @@ public class Program {
         System.out.print("Preço: ");
         double price = sc.nextDouble();
 
-        // construtor sem quantidade de estoque
-        Product product = new Product(name, price);
-        System.out.println("Dados do produto: " + product);
+        Product product = new Product();
 
+        product.setName(name);
+        product.setPrice(price);
+
+        System.out.println("Dados do produto: " + product);
         System.out.println("Digite a quantidade do produto que será atualizada no estoque: ");
         int quantity = sc.nextInt();
-        product.addProducts(quantity);
+        product.addQuantityProducts(quantity);
         System.out.println("Dados do produto atualizados: " + product);
         System.out.println("Digite a quantidade do produto que será reduzida do estoque: ");
         quantity = sc.nextInt();
-        product.removeProducts(quantity);
+        product.removeQuantityProducts(quantity);
         System.out.println("Dados do produto atualizados: " + product);
         sc.close();
     }
