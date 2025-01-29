@@ -9,27 +9,26 @@ public class Aplicativo {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-
+        Conta conta;
         System.out.print("Digite o número da conta: ");
         int numeroConta = Integer.parseInt(sc.nextLine());
         System.out.print("Digite o nome do titular: ");
         String titular = sc.nextLine();
         char opcaoDeposito;
-        double deposito = 0d;
+        double deposito;
         do {
             System.out.println("Deseja fazer o primeiro depósito (s/n)? ");
             opcaoDeposito = sc.next().toLowerCase().charAt(0);
 
-            // se houver deposito inicial
+            // verificando se há depósito inicial ou não para instanciar o objeto
             if (opcaoDeposito == 's') {
                 System.out.println("Digite o valor do depósito inicial: ");
                 deposito = sc.nextDouble();
-            }
+                conta = new Conta(numeroConta, titular, deposito);
+            } else conta = new Conta(numeroConta, titular);
             if (opcaoDeposito != 's' && opcaoDeposito != 'n')
                 System.out.println("Opção inválida digite apenas \"Sim\" ou \"Não\"");
         } while (opcaoDeposito != 's' && opcaoDeposito != 'n');
-        Conta conta = new Conta(numeroConta, titular);
-        if (deposito >= 0d) conta.depositoInicial(deposito);
 
         System.out.println("Dados da conta criada:\n" + conta);
 
@@ -52,14 +51,14 @@ public class Aplicativo {
                 System.out.println("Digite o novo nome do titular: ");
                 sc.nextLine();
                 String novoNomeTitular = sc.nextLine();
-                conta.mudarNomeTitular(novoNomeTitular);
+                conta.setTitular(novoNomeTitular);
+                System.out.println("Dados do titular atualizados:\n" + conta);
             } else if (opcaoTrocaNome == 'n') {
                 System.out.println("O nome do titular não foi alterado.");
             } else
                 System.out.println("Opção inválida digite apenas \"Sim\" ou \"Não\"");
-
-
         } while (opcaoTrocaNome != 's' && opcaoTrocaNome != 'n');
-        System.out.println("Dados do titular atualizados:\n" + conta);
+        System.out.println("Encerrando programa...");
+        sc.close();
     }
 }

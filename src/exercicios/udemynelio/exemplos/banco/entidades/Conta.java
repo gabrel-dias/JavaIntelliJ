@@ -5,35 +5,19 @@ public class Conta {
     private String titular;
     private double saldo;
 
-    // TODO titular mudar de nome em caso de casamento
+    public Conta(int numeroConta, String titular, double saldo) {
+        this.numeroConta = numeroConta;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
 
     public Conta(int numeroConta, String titular) {
         this.numeroConta = numeroConta;
         this.titular = titular;
     }
 
-    public int getNumeroConta() {
-        return numeroConta;
-    }
-
-    public String getTitular() {
-        return titular;
-    }
-
     public void setTitular(String titular) {
         this.titular = titular;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    public void depositoInicial(double depositoInicial) {
-        setSaldo(depositoInicial);
     }
 
     public void fazerDeposito(double deposito) {
@@ -42,10 +26,6 @@ public class Conta {
 
     public void fazerSaque(double saque) {
         saldo -= saque + 5d;
-    }
-
-    public void mudarNomeTitular(String nome){
-        setTitular(nome);
     }
 
     @Override
