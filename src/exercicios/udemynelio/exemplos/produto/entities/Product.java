@@ -8,13 +8,16 @@ public class Product {
     public Product() {
     }
 
-    public void setName(String name) {
+    public Product(String name, double price) {
         this.name = name;
-    }
-
-    public void setPrice(double price) {
         this.price = price;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+
 
     public double totalValueInStock() {
         return price * quantity;

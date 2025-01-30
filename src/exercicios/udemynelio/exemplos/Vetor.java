@@ -12,7 +12,6 @@ public class Vetor {
         int qtdAltura = sc.nextInt();
 
         double[] alturas = new double[qtdAltura];
-
         for (int i = 0; i < alturas.length; i++) {
             alturas[i] = sc.nextDouble();
         }
@@ -21,6 +20,6 @@ public class Vetor {
         for (double altura : alturas) {
             mediaAltura += altura;
         }
-        System.out.print("Média da altura = " + String.format("%.2f", mediaAltura/alturas.length));
+        System.out.print("Média da altura = " + String.format("%.2f", mediaAltura / alturas.length));
     }
 }
