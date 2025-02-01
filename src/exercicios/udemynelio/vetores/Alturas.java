@@ -26,6 +26,7 @@ public class Alturas {
             altura = sc.nextDouble();
             pessoa[i] = new Pessoa(nome, idade, altura);
         }
+        sc.close();
         System.out.printf("Altura média: %.2f m%n%n" , Pessoa.alturaMedia(pessoa));
         Pessoa.porcentagemIdade16(pessoa);
     }
