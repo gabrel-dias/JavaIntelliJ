@@ -26,6 +26,7 @@ public class Pensionato {
             quarto = sc.nextInt();
             alugueis[quarto] = new Aluguel(nome, email);
         }
+        sc.close();
         Aluguel.quartosOcupados(alugueis);
     }
 }
