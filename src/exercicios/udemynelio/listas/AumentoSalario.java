@@ -1,9 +1,10 @@
 /*
 https://github.com/acenelio/list1-java/blob/master/src/entities/Employee.java
-https://www.youtube.com/watch?v=Xj-osdBe3TE
  */
 package exercicios.udemynelio.listas;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,8 +17,9 @@ class AumentoSalario {
         int id;
         String nome;
         double salario;
-        Funcionario[] funcionarios = new Funcionario[n];
+        List<Funcionario> funcionariosList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
+            System.out.println("Funcionário #" + (i + 1) + ":");
             System.out.print("ID: ");
             id = sc.nextInt();
             System.out.print("Nome: ");
@@ -25,11 +27,30 @@ class AumentoSalario {
             nome = sc.nextLine();
             System.out.print("Salário: ");
             salario = sc.nextDouble();
-            funcionarios[i] = new Funcionario(id, nome, salario);
+            Funcionario funcionario = new Funcionario(id, nome, salario);
+            funcionariosList.add(funcionario);
         }
-
         System.out.print("Digite o ID do funcionário que terá o salário aumentado: ");
         int idAumentado = sc.nextInt();
+        Integer posicao = posicaoId(funcionariosList, idAumentado);
+        if (posicao==null){
+            System.out.println("O ID digitado não existe!");
+        } else{
+            System.out.print("Digite a porcentagem: ");
+            double porcentagem = sc.nextDouble();
+            funcionariosList.get(posicao).aumentarSalario(porcentagem);
+        }
+        System.out.println(funcionariosList);
+
+    }
+
+    public static Integer posicaoId(List<Funcionario> list, int id) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == id) {
+                return i;
+            }
+        }
+        return null;
     }
 }
 
@@ -70,5 +91,14 @@ class Funcionario {
 
     public void aumentarSalario(double porcentagem) {
         salario += salario * porcentagem / 100.0;
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", salario=" + salario +
+                '}';
     }
 }
