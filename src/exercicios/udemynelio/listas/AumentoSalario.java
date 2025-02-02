@@ -33,15 +33,16 @@ class AumentoSalario {
         System.out.print("Digite o ID do funcionário que terá o salário aumentado: ");
         int idAumentado = sc.nextInt();
         Integer posicao = posicaoId(funcionariosList, idAumentado);
-        if (posicao==null){
+        if (posicao == null) {
             System.out.println("O ID digitado não existe!");
-        } else{
+        } else {
             System.out.print("Digite a porcentagem: ");
             double porcentagem = sc.nextDouble();
             funcionariosList.get(posicao).aumentarSalario(porcentagem);
         }
-        System.out.println(funcionariosList);
-
+        for (Funcionario f : funcionariosList) {
+            System.out.println(f);
+        }
     }
 
     public static Integer posicaoId(List<Funcionario> list, int id) {
@@ -95,10 +96,6 @@ class Funcionario {
 
     @Override
     public String toString() {
-        return "Funcionario{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", salario=" + salario +
-                '}';
+        return id + ", " + nome + ", " + salario;
     }
 }
