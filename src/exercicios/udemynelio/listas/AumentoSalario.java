@@ -1,6 +1,3 @@
-/*
-https://github.com/acenelio/list1-java/blob/master/src/entities/Employee.java
- */
 package exercicios.udemynelio.listas;
 
 import java.util.ArrayList;
