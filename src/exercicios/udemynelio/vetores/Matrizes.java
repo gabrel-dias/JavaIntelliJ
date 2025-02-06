@@ -1,33 +1,45 @@
 package exercicios.udemynelio.vetores;
 
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Matrizes {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         Locale.setDefault(Locale.US);
-        System.out.print("Digite a ordem da matriz: ");
-        int n = sc.nextInt();
-        int[][] matriz = new int[n][n];
+        Scanner sc = new Scanner(System.in);
+        int m, n;
+        System.out.print("=======Matriz=======\nLinhas: ");
+        m = sc.nextInt();
+        System.out.print("Colunas: ");
+        n = sc.nextInt();
+        int[][] matriz = new int[m][n];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 matriz[i][j] = sc.nextInt();
             }
         }
-        System.out.println("Diagonal principal:");
-        for (int i = 0; i < matriz.length; i++) {
-            System.out.print(matriz[i][i] + " ");
-        }
+        System.out.println("Digite um número que será buscado na matriz: ");
+        int x = sc.nextInt();
 
-        int cont = 0;
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz.length; j++) {
-                if (matriz[i][j] < 0) cont++;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matriz[i][j] == x) {
+                    System.out.println("Posição: " + i + ", " + j);
+                    if (j > 0) {
+                        System.out.println("Esquerda: " + matriz[i][j - 1]);
+                    }
+                    if (i > 0) {
+                        System.out.println("Cima: " + matriz[i - 1][j]);
+                    }
+                    if (j < matriz[i].length - 1) {
+                        System.out.println("Direita: " + matriz[i][j + 1]);
+                    }
+                    if (i < matriz.length - 1) {
+                        System.out.println("Baixo: " + matriz[i + 1][j]);
+                    }
+                }
             }
         }
-        System.out.println("\nNúmeros negativos: "+cont);
     }
 }
