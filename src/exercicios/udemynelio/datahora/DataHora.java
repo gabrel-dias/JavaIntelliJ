@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.IntSummaryStatistics;
 
 public class DataHora {
     public static void main(String[] args) {
@@ -32,6 +33,16 @@ public class DataHora {
         LocalDate d7 = LocalDate.now();
         System.out.println("Data 7: " + d7.format(fmt1));
         System.out.println("Data 8: " + fmt2.format(d3));
+
+        System.out.println("convertendo DateTimes globais em locais");
+        LocalDate d10 = LocalDate.ofInstant(d3,ZoneId.systemDefault());
+
+        System.out.println(d10);
+        System.out.println(d10.getDayOfMonth());
+        System.out.println(d10.getMonthValue());
+        System.out.println(d10.getYear());
+
+
 
     }
 }
