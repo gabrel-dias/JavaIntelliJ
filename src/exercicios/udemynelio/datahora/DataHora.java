@@ -23,6 +23,7 @@ public class DataHora {
         System.out.println("Data 5: " + d5);
         System.out.println("Data 6: " + d6);
 
+        // convertendo dates em texto
         System.out.println("convertendo DateTimes em texto");
         DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy, HH:mm B").withZone(ZoneId.systemDefault());
@@ -30,23 +31,23 @@ public class DataHora {
         System.out.println("Data 7: " + d7.format(fmt1));
         System.out.println("Data 8: " + fmt2.format(d3));
 
+        //convertendo globais em locais
         System.out.println("convertendo DateTimes globais em locais");
         LocalDate d10 = LocalDate.ofInstant(d3, ZoneId.systemDefault());
-
         System.out.println(d10);
         System.out.println(d10.getDayOfMonth());
         System.out.println(d10.getMonthValue());
         System.out.println(d10.getYear());
 
+        // operando as datas
         System.out.println("operações com datas");
         LocalDate inicioNamoro = LocalDate.parse("2019-10-05");
         LocalDate d11 = inicioNamoro.minusMonths(5);
         System.out.println("Data 9: " + d11.format(fmt1));
-        Duration tempoNamoro = Duration.between(inicioNamoro.atStartOfDay(), LocalDateTime.now());
-        long diasNamoro = tempoNamoro.toDays();
-        LocalDate dataFim = inicioNamoro.plusDays(diasNamoro);
-        System.out.println("Data 10: " + dataFim.format(fmt1));
+        Duration tempoDiasNamoro = Duration.between(inicioNamoro.atStartOfDay(), LocalDateTime.now());
+        System.out.println("Data 10: " + tempoDiasNamoro.toDays());
 
-
+        Period periodNamoro = Period.between(inicioNamoro, LocalDate.now());
+        System.out.println("gabriel e bruna namoram há: " + periodNamoro.getYears() + "." + periodNamoro.getMonths());
     }
 }
