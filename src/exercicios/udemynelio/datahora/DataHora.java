@@ -1,11 +1,7 @@
 package exercicios.udemynelio.datahora;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.IntSummaryStatistics;
 
 public class DataHora {
     public static void main(String[] args) {
@@ -35,13 +31,21 @@ public class DataHora {
         System.out.println("Data 8: " + fmt2.format(d3));
 
         System.out.println("convertendo DateTimes globais em locais");
-        LocalDate d10 = LocalDate.ofInstant(d3,ZoneId.systemDefault());
+        LocalDate d10 = LocalDate.ofInstant(d3, ZoneId.systemDefault());
 
         System.out.println(d10);
         System.out.println(d10.getDayOfMonth());
         System.out.println(d10.getMonthValue());
         System.out.println(d10.getYear());
 
+        System.out.println("operações com datas");
+        LocalDate inicioNamoro = LocalDate.parse("2019-10-05");
+        LocalDate d11 = inicioNamoro.minusMonths(5);
+        System.out.println("Data 9: " + d11.format(fmt1));
+        Duration tempoNamoro = Duration.between(inicioNamoro.atStartOfDay(), LocalDateTime.now());
+        long diasNamoro = tempoNamoro.toDays();
+        LocalDate dataFim = inicioNamoro.plusDays(diasNamoro);
+        System.out.println("Data 10: " + dataFim.format(fmt1));
 
 
     }
