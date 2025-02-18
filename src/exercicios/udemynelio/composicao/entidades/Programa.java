@@ -1,3 +1,4 @@
+// TODO terminar esse exercício
 package exercicios.udemynelio.composicao.entidades;
 
 import exercicios.udemynelio.composicao.entidades.enums.NivelTrabalhador;
@@ -24,7 +25,7 @@ public class Programa {
         double salario = sc.nextDouble();
         System.out.print("Quantos contratos para este trabalhador? ");
         int qtdContrato = sc.nextInt();
-        Trabalhador trabalhador = new Trabalhador(nome, NivelTrabalhador.valueOf(nivel), salario, departamento);
+//        Trabalhador trabalhador = new Trabalhador(nome, NivelTrabalhador.valueOf(nivel), salario, departamento);
         // dados para os contratos
         ContratoHora contrato;
         for (int i = 0; i < qtdContrato; i++) {
@@ -37,7 +38,7 @@ public class Programa {
             System.out.print("Duração (horas): ");
             int horas = sc.nextInt();
             contrato = new ContratoHora(data, valorHora, horas);
-            trabalhador.addContrato(contrato);
+//            trabalhador.addContrato(contrato);
         }
 
     }
