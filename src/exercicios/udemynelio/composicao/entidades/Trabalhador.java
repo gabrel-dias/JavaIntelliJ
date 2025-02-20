@@ -9,13 +9,10 @@ public class Trabalhador {
     private String nome;
     private NivelTrabalhador nivel;
     private Double salarioBase;
-    //o trabalhador tem um departamento
+    //o trabalhador tem pelo menos um departamento
     private Departamento departamento;
     //o trabalhador tem vários contratos e por isso não é incluído no construtor
     private List<ContratoHora> contratos = new ArrayList<>();
-
-    public Trabalhador() {
-    }
 
     public Trabalhador(String nome, NivelTrabalhador nivel, double salarioBase, Departamento departamento) {
         this.nome = nome;
@@ -70,7 +67,11 @@ public class Trabalhador {
 
     public double rendaMensal(int ano, int mes) {
         double renda = salarioBase;
-
+        for (ContratoHora c : contratos) {
+            if (c.getData().getMonthValue() == mes && c.getData().getYear() == ano) {
+                renda += c.valorTotal();
+            }
+        }
         return renda;
     }
 
