@@ -1,4 +1,4 @@
-package exercicios.udemynelio.composicao.entidades;
+package exercicios.udemynelio.composicao.exercicio1;
 
 public class Departamento {
     private String nome;

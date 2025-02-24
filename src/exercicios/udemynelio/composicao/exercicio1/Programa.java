@@ -1,7 +1,7 @@
 // TODO terminar esse exercício
-package exercicios.udemynelio.composicao.entidades;
+package exercicios.udemynelio.composicao.exercicio1;
 
-import exercicios.udemynelio.composicao.entidades.enums.NivelTrabalhador;
+import exercicios.udemynelio.composicao.exercicio1.enums.NivelTrabalhador;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -1,4 +1,4 @@
-package exercicios.udemynelio.composicao.entidades;
+package exercicios.udemynelio.composicao.exercicio1;
 
 import java.time.LocalDate;
 

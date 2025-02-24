@@ -1,6 +1,6 @@
-package exercicios.udemynelio.composicao.entidades;
+package exercicios.udemynelio.composicao.exercicio1;
 
-import exercicios.udemynelio.composicao.entidades.enums.NivelTrabalhador;
+import exercicios.udemynelio.composicao.exercicio1.enums.NivelTrabalhador;
 
 import java.util.ArrayList;
 import java.util.List;
