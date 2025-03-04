@@ -6,13 +6,13 @@ package exercicios.udemynelio.composicao.exercicio3;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Locale.setDefault(Locale.US);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         // dados para criação de um cliente
@@ -20,9 +20,10 @@ public class Program {
         String name = sc.nextLine();
         System.out.print("E-mail: ");
         String email = sc.nextLine();
-        System.out.print("Birth date: ");
+        System.out.print("Birth date (DD/MM/YYYY): ");
         LocalDate birthDate = LocalDate.parse(sc.nextLine(), formatter);
         Client client = new Client(name, email, birthDate);
+
         // dados para criação de um pedido
         System.out.print("Enter order data:\nSelect the status of the order:\n");
         OrderStatus[] statuses = OrderStatus.values();
@@ -38,10 +39,8 @@ public class Program {
                 validChoice = true;
             } else System.out.println("Invalid option!");
         }
-        Order order = null;
-        List<OrderItem> orderItems = new ArrayList<>();
-        Product product = null;
-        OrderItem orderItem = null;
+        Order order = new Order(LocalDateTime.now(), status, client);
+
         System.out.print("How many items to this order? ");
         int quantityItens = sc.nextInt();
         for (int i = 0; i < quantityItens; i++) {
@@ -50,21 +49,14 @@ public class Program {
             sc.nextLine();
             String productName = sc.nextLine();
             System.out.print("Product price: ");
-            Double productPrice = sc.nextDouble();
+            double productPrice = sc.nextDouble();
             System.out.print("Quantity: ");
-            Integer productQuantity = sc.nextInt();
-            product = new Product(productName, productPrice);
-            orderItem = new OrderItem(productQuantity, product.getPrice(), product);
-            orderItems.add(orderItem);
-            order = new Order(LocalDateTime.now(), status, orderItems, client);
+            int productQuantity = sc.nextInt();
+            Product product = new Product(productName, productPrice);
+            OrderItem item = new OrderItem(productQuantity, productPrice, product);
+            order.addItem(item);
         }
-        System.out.println("Order summary:");
-        System.out.println("Order moment: " + formatter.format(order.getMoment()));
-        System.out.println("Order status: " + status);
-        System.out.println("Client: " + client.getName() + " (" + formatter.format(client.getBirthDate()) + ") - " + client.getEmail());
-        for (int i = 0; i < quantityItens; i++) {
-            System.out.println("Order items:\n" + product.getName() + ", $" + product.getPrice() + ", Quantity: " + orderItem.getQuantity() + ", Subtotal: $" + orderItem.subtotal());
-            System.out.println("Total price: $" + orderItem.subtotal());
-        }
+        sc.close();
+        System.out.print("\n" + order);
     }
 }

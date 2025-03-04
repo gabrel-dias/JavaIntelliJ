@@ -1,6 +1,7 @@
 package exercicios.udemynelio.composicao.exercicio3;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +10,13 @@ public class Order {
     private OrderStatus status;
     private List<OrderItem> items = new ArrayList<>();
     private Client client;
+    static DateTimeFormatter localDateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    static DateTimeFormatter localDateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    public Order(LocalDateTime moment, OrderStatus status, List<OrderItem> items, Client client) {
+
+    public Order(LocalDateTime moment, OrderStatus status, Client client) {
         this.moment = moment;
         this.status = status;
-        this.items = items;
         this.client = client;
     }
 
@@ -33,14 +36,6 @@ public class Order {
         this.status = status;
     }
 
-    public List<OrderItem> getItems() {
-        return items;
-    }
-
-    public void setItems(List<OrderItem> items) {
-        this.items = items;
-    }
-
     public Client getClient() {
         return client;
     }
@@ -55,11 +50,28 @@ public class Order {
 
     public void remove(OrderItem item) {
         items.remove(item);
-
     }
 
     public Double total() {
-        Double total = 0d;
+        double total = 0d;
+        for (OrderItem i : items) {
+            total += i.subtotal();
+        }
         return total;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Order summary:\n");
+        sb.append("Order moment: " + getMoment().format(localDateTimeFormatter) + "\n");
+        sb.append("Order status: " + status + "\n");
+        sb.append("Client: " + client.getName() + " (" + localDateFormatter.format(client.getBirthDate()) + ") - " + client.getEmail() + "\n");
+        sb.append("Order items:\n");
+        for (OrderItem i : items) {
+            sb.append(i + "\n");
+        }
+        sb.append("Total price: $" + String.format("%.2f", total()));
+
+        return sb.toString();
     }
 }
