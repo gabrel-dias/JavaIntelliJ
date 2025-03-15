@@ -1,3 +1,6 @@
+// GABRIEL MAGALHÃES DIAS - POO - NOITE
+// POO - Exercício 3
+
 package cdl.poo.POO3;
 
 public class Calculadora {
@@ -34,6 +37,8 @@ public class Calculadora {
     }
 
     public double somar(double a, double b) {
+        setA(a);
+        setB(b);
         setResultado(a + b);
         return getResultado();
     }
@@ -44,11 +49,15 @@ public class Calculadora {
     }
 
     public double multiplicar(double a, double b) {
+        setA(a);
+        setB(b);
         setResultado(a * b);
         return getResultado();
     }
 
     public double dividir(double a, double b) {
+        setA(a);
+        setB(b);
         setResultado(a / b);
         return getResultado();
     }
