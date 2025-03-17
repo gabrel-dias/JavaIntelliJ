@@ -4,9 +4,6 @@ public class Conta {
     private int numero;
     private double saldo;
 
-    public Conta() {
-    }
-
     public Conta(int numero, double saldo) {
         this.numero = numero;
         this.saldo = saldo;
@@ -28,5 +25,11 @@ public class Conta {
         this.saldo = saldo;
     }
 
-
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "numero=" + numero +
+                ", saldo=" + saldo +
+                '}';
+    }
 }
