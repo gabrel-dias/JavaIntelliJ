@@ -30,10 +30,8 @@ public class FaturaMensal {
 
     @Override
     public String toString() {
-        return "FaturaMensal{" +
-                "cliente=" + cliente +
-                ", mesReferencia=" + mesReferencia.format(formatter) +
-                ", valor=" + valor +
-                '}';
+        return "Cliente: " + "(" + cliente + ")" + "\n" +
+                "    Mês de Referência: " + mesReferencia.format(formatter) + "\n" +
+                "    Valor: R$ " + String.format("%.2f", valor) + "\n";
     }
 }

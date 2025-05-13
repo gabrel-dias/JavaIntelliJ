@@ -6,7 +6,7 @@ public class ContratoPaaS extends ContratoServicoNuvem implements Faturavel, Ren
     private double usoAplicacoes; // número de aplicações usadas
     private double usoBancoDados; // em GB
 
-    public ContratoPaaS(Cliente cliente, String sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica,
+    public ContratoPaaS(Cliente cliente, double sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica,
                         double usoAplicacoes, double usoBancoDados) {
         super(cliente, sla, dataInicio, dataFim, renovacaoAutomatica);
         this.usoAplicacoes = usoAplicacoes;
@@ -30,7 +30,7 @@ public class ContratoPaaS extends ContratoServicoNuvem implements Faturavel, Ren
     public boolean verificarSLA() {
         // Implementar lógica de verificação de SLA para PaaS
         // Exemplo simplificado: verificar se SLA é "99.5%" ou superior
-        return sla != null && sla.compareTo("99.5%") >= 0;
+        return sla >= 99.5;
     }
 
     @Override

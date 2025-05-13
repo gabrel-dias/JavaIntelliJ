@@ -1,15 +1,17 @@
 package cdl.poo.trabalhoap2;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ContratoSaaS extends ContratoServicoNuvem implements Faturavel, Renovavel, RelatorioGeravel {
     private int numeroUsuarios;
 
-    public ContratoSaaS(Cliente cliente, String sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica,
-                        int numeroUsuarios) {
+    public ContratoSaaS(Cliente cliente, double sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica, int numeroUsuarios) {
         super(cliente, sla, dataInicio, dataFim, renovacaoAutomatica);
         this.numeroUsuarios = numeroUsuarios;
     }
+
+    DateTimeFormatter periodoContrato = DateTimeFormatter.ofPattern("dd/MM/YYYY");
 
     @Override
     public double calcularFatura() {
@@ -25,9 +27,9 @@ public class ContratoSaaS extends ContratoServicoNuvem implements Faturavel, Ren
 
     @Override
     public boolean verificarSLA() {
-        // Implementar lógica de verificação de SLA para SaaS
+        // Implementar lógica de verificação de SLA para PaaS
         // Exemplo simplificado: verificar se SLA é "99.0%" ou superior
-        return sla != null && sla.compareTo("99.0%") >= 0;
+        return sla >= 99.0;
     }
 
     @Override
@@ -44,8 +46,8 @@ public class ContratoSaaS extends ContratoServicoNuvem implements Faturavel, Ren
     @Override
     public String gerarResumoContrato() {
         return "Contrato SaaS para cliente " + cliente.getNome() +
-                ", SLA: " + sla +
-                ", Período: " + dataInicio + " a " + dataFim +
+                ", SLA: " + sla + "%" +
+                ", Período: " + dataInicio.format(periodoContrato) + " a " + dataFim.format(periodoContrato) +
                 ", Renovação automática: " + renovacaoAutomatica;
     }
 }

@@ -6,7 +6,7 @@ public class ContratoIaaS extends ContratoServicoNuvem implements Faturavel, Ren
     private double usoCPU; // em horas
     private double usoArmazenamento; // em GB
 
-    public ContratoIaaS(Cliente cliente, String sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica,
+    public ContratoIaaS(Cliente cliente, double sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica,
                         double usoCPU, double usoArmazenamento) {
         super(cliente, sla, dataInicio, dataFim, renovacaoAutomatica);
         this.usoCPU = usoCPU;
@@ -15,8 +15,8 @@ public class ContratoIaaS extends ContratoServicoNuvem implements Faturavel, Ren
 
     @Override
     public double calcularFatura() {
-        double custoCPU = usoCPU * 0.05; // exemplo: 0.05 por hora de CPU
-        double custoArmazenamento = usoArmazenamento * 0.01; // exemplo: 0.01 por GB
+        double custoCPU = usoCPU * 0.50; // Custo por hora de processamento
+        double custoArmazenamento = usoArmazenamento * 0.10; // Custo por GB
         double custoTotal = custoCPU + custoArmazenamento;
 
         // Aplicar penalidade se SLA violado
@@ -30,7 +30,7 @@ public class ContratoIaaS extends ContratoServicoNuvem implements Faturavel, Ren
     public boolean verificarSLA() {
         // Implementar lógica de verificação de SLA para IaaS
         // Exemplo simplificado: verificar se SLA é "99.9%" ou superior
-        return sla != null && sla.compareTo("99.9%") >= 0;
+        return sla >=99.9;
     }
 
     @Override

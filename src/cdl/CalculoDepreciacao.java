@@ -1,3 +1,5 @@
+package cdl;
+
 import java.util.Scanner;
 
 public class CalculoDepreciacao {

@@ -31,6 +31,6 @@ public class RelatorioFinanceiro {
                 .mapToDouble(FaturaMensal::getValor)
                 .sum();
 
-        return "Relatório Financeiro para cliente " + cliente.getNome() + ": Total faturado = " + total;
+        return "Relatório Financeiro para o(a) cliente " + cliente.getNome() + ": Total faturado = R$" + total;
     }
 }

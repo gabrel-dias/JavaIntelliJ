@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,6 +23,7 @@ public class Main {
         String nomeCliente = scanner.nextLine();
         System.out.print("Digite o identificador do cliente: ");
         String idCliente = scanner.nextLine();
+
         Cliente cliente = new Cliente(nomeCliente, idCliente);
         clientes.add(cliente);
 
@@ -29,25 +31,50 @@ public class Main {
         System.out.println("Cadastrar novo contrato SaaS");
         System.out.println("SLA (Service Level Agreement) é o nível de serviço acordado, por exemplo, 99.9% significa que o serviço estará disponível 99.9% do tempo.");
         System.out.print("Digite o SLA (ex: 99.9%): ");
-        String sla = scanner.nextLine();
-
-        LocalDate dataInicio = null;
-        while (dataInicio == null) {
-            System.out.print("Digite a data de início (dd/MM/yyyy): ");
-            String input = scanner.nextLine();
+        double sla;
+        while (true) {
+            System.out.print("Digite o SLA (ex: 99.9): ");
             try {
-                dataInicio = LocalDate.parse(input, formatter);
-            } catch (DateTimeParseException e) {
-                System.out.println("Formato inválido. Por favor, use o formato dd/MM/yyyy.");
+                sla = scanner.nextDouble();
+                if (sla >= 0.1 && sla <= 100.0) {
+                    break; // Valor válido, sai do loop
+                } else {
+                    System.out.println("O SLA deve estar entre 0.1 e 100.0. Tente novamente.");
+                }
+            } catch (NumberFormatException | InputMismatchException e) {
+                System.out.println("Entrada inválida. Por favor, digite um número decimal.");
+                scanner.nextLine(); // Limpa o buffer do scanner e solicita novo valor ao usuário
             }
         }
-
+        LocalDate dataInicio = null;
         LocalDate dataFim = null;
-        while (dataFim == null) {
-            System.out.print("Digite a data de fim (dd/MM/yyyy): ");
-            String input = scanner.nextLine();
+
+        while (true) {
             try {
-                dataFim = LocalDate.parse(input, formatter);
+                scanner.nextLine();
+                if (dataInicio == null) {
+                    System.out.print("Digite a data de início (dd/MM/yyyy): ");
+                    String inputDataInicio = scanner.nextLine();
+                    dataInicio = LocalDate.parse(inputDataInicio, formatter);
+                }
+
+                if (dataFim == null) {
+                    System.out.print("Digite a data de fim (dd/MM/yyyy): ");
+                    String inputDataFim = scanner.nextLine();
+                    dataFim = LocalDate.parse(inputDataFim, formatter);
+                }
+
+                if (dataInicio.isEqual(dataFim)) {
+                    System.out.println("A data de início não pode ser igual à data de fim. Por favor, insira novamente.");
+                    dataInicio = null;
+                    dataFim = null;
+                } else if (dataInicio.isAfter(dataFim)) {
+                    System.out.println("A data de início não pode ser posterior à data de fim. Por favor, insira novamente.");
+                    dataInicio = null;
+                    dataFim = null;
+                } else {
+                    break; // Sai do loop se as datas forem válidas
+                }
             } catch (DateTimeParseException e) {
                 System.out.println("Formato inválido. Por favor, use o formato dd/MM/yyyy.");
             }
@@ -68,7 +95,15 @@ public class Main {
         }
 
         System.out.print("Digite o número de usuários: ");
-        int numeroUsuarios = Integer.parseInt(scanner.nextLine());
+        int numeroUsuarios = 0;
+        while (true) {
+            try {
+                numeroUsuarios = Integer.parseInt(scanner.nextLine());
+                break; // Sai do loop se o input for válido
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, digite um número inteiro.");
+            }
+        }
 
         ContratoSaaS contratoSaaS = new ContratoSaaS(cliente, sla, dataInicio, dataFim, renovacaoAutomatica, numeroUsuarios);
         System.out.println();
@@ -81,15 +116,14 @@ public class Main {
 
         LocalDate mesReferencia = null;
         while (mesReferencia == null) {
-            System.out.print("Digite o mês de referência (dd/MM/yyyy): ");
+            System.out.print("Digite o mês de referência (MM/yyyy): ");
             String input = scanner.nextLine();
             try {
-                mesReferencia = LocalDate.parse(input, formatter);
+                mesReferencia = LocalDate.parse("01/" + input, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             } catch (DateTimeParseException e) {
-                System.out.println("Formato inválido. Por favor, use o formato dd/MM/yyyy.");
+                System.out.println("Formato inválido. Por favor, use o formato MM/yyyy.");
             }
         }
-
         double valorFatura = contratoSaaS.calcularFatura();
         FaturaMensal fatura = new FaturaMensal(cliente, mesReferencia, valorFatura);
         faturas.add(fatura);

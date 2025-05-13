@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public abstract class ContratoServicoNuvem {
     protected Cliente cliente;
-    protected String sla;
+    protected double sla;
     protected LocalDate dataInicio;
     protected LocalDate dataFim;
     protected boolean renovacaoAutomatica;
 
-    public ContratoServicoNuvem(Cliente cliente, String sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica) {
+    public ContratoServicoNuvem(Cliente cliente, double sla, LocalDate dataInicio, LocalDate dataFim, boolean renovacaoAutomatica) {
         this.cliente = cliente;
         this.sla = sla;
         this.dataInicio = dataInicio;
@@ -21,7 +21,7 @@ public abstract class ContratoServicoNuvem {
         return cliente;
     }
 
-    public String getSla() {
+    public double getSla() {
         return sla;
     }
 
