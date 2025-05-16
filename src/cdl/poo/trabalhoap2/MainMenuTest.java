@@ -8,7 +8,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class MainMenuTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -51,18 +51,61 @@ public class Main {
                     int clienteIndex = scanner.nextInt();
                     scanner.nextLine();
 
+                    if (clienteIndex < 0 || clienteIndex >= clientes.size()) {
+                        System.out.println("Índice inválido. Tente novamente.");
+                        break;
+                    }
                     Cliente cliente = clientes.get(clienteIndex);
-                    System.out.print("Digite o SLA (0.1 a 100.0): ");
-                    double sla = scanner.nextDouble();
+                    double sla;
+                    while (true) {
+                        System.out.print("Digite o SLA (ex: 99.9): ");
+                        try {
+                            sla = scanner.nextDouble();
+                            if (sla >= 0.1 && sla <= 100.0) {
+                                break; // Valor válido, sai do loop
+                            } else {
+                                System.out.println("O SLA deve estar entre 0.1 e 100.0. Tente novamente.");
+                            }
+                        } catch (NumberFormatException | InputMismatchException e) {
+                            System.out.println("Entrada inválida. Por favor, digite um número decimal.");
+                            scanner.nextLine(); // Limpa o buffer do scanner e solicita novo valor ao usuário
+                        }
+                    }
                     scanner.nextLine();
+                    LocalDate dataInicio = null;
+                    LocalDate dataFim = null;
+                    while (true) {
+                        try {
+                            if (dataInicio == null) {
+                                System.out.print("Digite a data de início (dd/MM/yyyy): ");
+                                String inputDataInicio = scanner.nextLine();
+                                dataInicio = LocalDate.parse(inputDataInicio, formatter);
+                            }
 
-                    System.out.print("Digite a data de início (dd/MM/yyyy): ");
-                    LocalDate dataInicio = LocalDate.parse(scanner.nextLine(), formatter);
-                    System.out.print("Digite a data de fim (dd/MM/yyyy): ");
-                    LocalDate dataFim = LocalDate.parse(scanner.nextLine(), formatter);
+                            if (dataFim == null) {
+                                System.out.print("Digite a data de fim (dd/MM/yyyy): ");
+                                String inputDataFim = scanner.nextLine();
+                                dataFim = LocalDate.parse(inputDataFim, formatter);
+                            }
 
-                    System.out.print("Renovação automática? (SIM/NÃO): ");
-                    boolean renovacaoAutomatica = scanner.nextLine().equalsIgnoreCase("SIM");
+                            if (dataInicio.isEqual(dataFim)) {
+                                System.out.println("A data de início não pode ser igual à data de fim. Por favor, insira novamente.");
+                                dataInicio = null;
+                                dataFim = null;
+                            } else if (dataInicio.isAfter(dataFim)) {
+                                System.out.println("A data de início não pode ser posterior à data de fim. Por favor, insira novamente.");
+                                dataInicio = null;
+                                dataFim = null;
+                            } else {
+                                break; // Sai do loop se as datas forem válidas
+                            }
+                        } catch (DateTimeParseException e) {
+                            System.out.println("Formato inválido. Por favor, use o formato dd/MM/yyyy.");
+                        }
+                    }
+
+                    System.out.print("Renovação automática? (S/N): ");
+                    boolean renovacaoAutomatica = scanner.nextLine().equalsIgnoreCase("S");
 
                     System.out.println("Escolha o tipo de contrato: 1- SaaS, 2- PaaS, 3- IaaS");
                     int tipoContrato = scanner.nextInt();

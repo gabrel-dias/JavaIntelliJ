@@ -42,4 +42,9 @@ public abstract class ContratoServicoNuvem {
     public abstract boolean verificarSLA();
 
     public abstract void renovarContrato();
+
+
+    public String gerarResumoContrato() {
+        return "Cliente: " + cliente.getNome() + ", SLA: " + sla + "%, Início: " + dataInicio + ", Fim: " + dataFim + ", Renovação Automática: " + (renovacaoAutomatica ? "Sim" : "Não");
+    }
 }
