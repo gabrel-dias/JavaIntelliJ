@@ -7,4 +7,13 @@ public class OutsourcedEmployee extends Employee {
         super(name, hours, valuePerHour);
         this.additionalCharge = additionalCharge;
     }
+
+    public double getAdditionalCharge() {
+        return additionalCharge;
+    }
+
+    @Override
+    public double payment() {
+        return additionalCharge + super.payment();
+    }
 }

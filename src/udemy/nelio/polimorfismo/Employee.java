@@ -10,4 +10,21 @@ public class Employee {
         this.hours = hours;
         this.valuePerHour = valuePerHour;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public double getValuePerHour() {
+        return valuePerHour;
+    }
+
+    public double payment(){
+        return hours*valuePerHour;
+    }
+
 }
