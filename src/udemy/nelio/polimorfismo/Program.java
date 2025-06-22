@@ -9,7 +9,7 @@ public class Program {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the numbert of employees: ");
+        System.out.print("Enter the number of employees: ");
         int employees = sc.nextInt();
         List<Employee> employeeList = new ArrayList<>();
 
@@ -33,8 +33,6 @@ public class Program {
                 employeeList.add(new Employee(name, hours, valueHour));
             }
         }
-        for (Employee employee : employeeList) {
-            System.out.println(employee.getName());
-        }
+        System.out.println(Employee.paymentList(employeeList));
     }
 }
