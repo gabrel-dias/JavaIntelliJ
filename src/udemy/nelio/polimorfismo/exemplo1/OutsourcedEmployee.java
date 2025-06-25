@@ -1,4 +1,4 @@
-package udemy.nelio.polimorfismo;
+package udemy.nelio.polimorfismo.exemplo1;
 
 public class OutsourcedEmployee extends Employee {
     private double additionalCharge;
