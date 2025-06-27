@@ -20,6 +20,7 @@ public class Program {
         for (int i = 1; i <= n; i++) {
             System.out.println("Product #" + i + " data:\nCommon, used or imported (c/u/i)?");
             char productType = sc.next().toLowerCase().charAt(0);
+            sc.nextLine();
             System.out.print("Name: ");
             String name = sc.nextLine();
             System.out.print("Price: ");
@@ -27,14 +28,20 @@ public class Program {
             if (productType == 'c') {
                 productList.add(new Product(name, price));
             } else if (productType == 'u') {
-                System.out.println("Manufacture date (DD/MM/YYYY)");
+                System.out.print("Manufacture date (DD/MM/YYYY): ");
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 String dateString = sc.next();
                 LocalDate manufactureDate = LocalDate.parse(dateString, formatter);
                 productList.add(new UsedProduct(name, price, manufactureDate));
+            } else if (productType == 'i') {
+                System.out.print("Customs fee: ");
+                double customsFee = sc.nextDouble();
+                productList.add(new ImportedProduct(name, price, customsFee));
             }
-
+            sc.close();
         }
-
+        for (Product product : productList) {
+            System.out.println(product.priceTag());
+        }
     }
 }

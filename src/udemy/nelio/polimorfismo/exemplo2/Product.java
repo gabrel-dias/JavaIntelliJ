@@ -18,6 +18,6 @@ public class Product {
     }
 
     public String priceTag() {
-        return this.name + " $ " + this.price;
+        return getName() + " $ " + getPrice();
     }
 }
