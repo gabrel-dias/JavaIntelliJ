@@ -21,9 +21,5 @@ public abstract class TaxPayer {
         return anualIncome;
     }
 
-    public void setAnualIncome(double anualIncome) {
-        this.anualIncome = anualIncome;
-    }
-
     public abstract double tax();
 }
